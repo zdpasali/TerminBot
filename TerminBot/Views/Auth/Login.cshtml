@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin login</title>
+    <style>
+        body {
+            font-family: system-ui,Segoe UI,Arial;
+            max-width: 480px;
+            margin: 40px auto;
+            padding: 0 16px
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0
+        }
+
+        button {
+            padding: 10px 14px;
+            cursor: pointer
+        }
+
+        .err {
+            color: #b00020;
+            margin: 8px 0
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Admin login</h2>
+        @if (ViewBag.Error != null)
+        {
+            <div class="err">@ViewBag.Error</div>
+        }
+        <form method="post" action="/auth/login">
+            <input type="hidden" name="returnUrl" value="@returnUrl" />
+            <label>Korisničko ime</label>
+            <input name="username" autocomplete="username" required />
+            <label>Lozinka</label>
+            <input name="password" type="password" autocomplete="current-password" required />
+            <button type="submit">Prijava</button>
+        </form>
+    </div>
+</body>
+</html>
