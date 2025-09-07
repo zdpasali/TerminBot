@@ -1,0 +1,6 @@
+TerminBot/bin/
+TerminBot/obj/
+*.sqlite
+*.log
+cf-log.txt
+appsettings.Development.json
